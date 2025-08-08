@@ -14,7 +14,6 @@ import { BottomNav } from "@/components/Layout/BottomNav";
 import { useToast } from "@/hooks/use-toast";
 import { Video, Gem } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroBackground from "@/assets/hero-bg.jpg";
 
 interface UserProfile {
   username: string;
@@ -187,18 +186,8 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero Background */}
-      <div 
-        className="fixed inset-0 opacity-5 pointer-events-none"
-        style={{
-          backgroundImage: `url(${heroBackground})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      />
-      
       {/* Main Content */}
-      <div className="relative z-10">
+      <div>
         {activeTab === "home" && (
           <HomeScreen
             onStartMatch={handleStartMatch}

@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Video, Crown, AlertCircle, Gem, Filter, Bell } from "lucide-react";
 import { CoinBalance } from "./CoinBalance";
-import videoChatIllustration from "@/assets/video-chat-illustration.jpg";
 
 interface HomeScreenProps {
   onStartMatch: () => void;
@@ -122,12 +121,8 @@ export function HomeScreen({
         {/* Video Chat Section */}
         <Card className="shadow-card rounded-xl sm:rounded-2xl overflow-hidden border-0">
           <CardHeader className="text-center">
-            <div className="mx-auto mb-4 overflow-hidden rounded-lg sm:rounded-xl">
-              <img 
-                src={videoChatIllustration} 
-                alt="Video Chat" 
-                className="w-full h-32 sm:h-48 object-cover"
-              />
+            <div className="mx-auto mb-4 w-full h-32 sm:h-48 bg-gradient-primary rounded-lg sm:rounded-xl flex items-center justify-center">
+              <Video className="w-16 h-16 text-white animate-float" />
             </div>
             <CardTitle className="font-poppins text-lg sm:text-xl">Start Video Chat</CardTitle>
             <p className="text-muted-foreground text-xs sm:text-sm font-poppins">

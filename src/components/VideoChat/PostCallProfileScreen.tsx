@@ -48,11 +48,17 @@ export function PostCallProfileScreen({ profile, onReject, onAccept, onBack }: P
           {profile.photos.map((photo, index) => (
             <div key={index} className="w-full flex-shrink-0 snap-start relative">
               <div className="aspect-[3/4] bg-gradient-to-br from-primary/20 to-secondary/20">
-                <img 
-                  src={photo} 
-                  alt={`${profile.username} photo ${index + 1}`}
-                  className="w-full h-full object-cover"
-                />
+                {photo.startsWith('http') ? (
+                  <img 
+                    src={photo} 
+                    alt={`${profile.username} photo ${index + 1}`}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-gradient-primary flex items-center justify-center">
+                    <span className="text-6xl text-white">📷</span>
+                  </div>
+                )}
                 {/* Gradient overlay for text readability */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                 

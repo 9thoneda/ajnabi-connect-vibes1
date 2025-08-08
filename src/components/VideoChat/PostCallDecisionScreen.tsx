@@ -18,7 +18,13 @@ export function PostCallDecisionScreen({ profile, onReject, onAccept }: PostCall
           <CardContent className="p-6">
             <div className="w-40 h-40 mx-auto rounded-2xl overflow-hidden mb-4">
               {profile.photo ? (
-                <img src={profile.photo} alt={`${profile.username} profile photo`} className="w-full h-full object-cover" />
+                profile.photo.startsWith('http') ? (
+                  <img src={profile.photo} alt={`${profile.username} profile photo`} className="w-full h-full object-cover" />
+                ) : (
+                  <div className="w-full h-full bg-gradient-primary flex items-center justify-center">
+                    <span className="text-4xl text-white">📷</span>
+                  </div>
+                )
               ) : (
                 <div className="w-full h-full bg-gradient-primary flex items-center justify-center">
                   <Heart className="w-16 h-16 text-white" />

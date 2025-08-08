@@ -76,11 +76,17 @@ export function ProfileScreen({ profile, onEdit, onBack, onBuyCoins }: ProfileSc
                 {photos.map((photo, index) => (
                   <div key={index} className="w-full flex-shrink-0 snap-start relative">
                     <div className="aspect-[4/3] bg-gradient-to-br from-primary/20 to-secondary/20">
-                      <img 
-                        src={photo} 
-                        alt={`${username} photo ${index + 1}`}
-                        className="w-full h-full object-cover"
-                      />
+                      {photo.startsWith('http') ? (
+                        <img 
+                          src={photo} 
+                          alt={`${username} photo ${index + 1}`}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <div className="w-full h-full bg-gradient-primary flex items-center justify-center">
+                          <span className="text-4xl text-white">📷</span>
+                        </div>
+                      )}
                       {/* Gradient overlay for text readability on first photo */}
                       {index === 0 && (
                         <>
